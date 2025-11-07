@@ -30,10 +30,16 @@ const icons: Record<IconName, React.ReactNode> = {
   clock: (
     <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
   ),
+  'map-pin': (
+    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 20l-4.95-5.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+  ),
+  level: (
+     <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h7" />
+  ),
 };
 
 const Icon: React.FC<IconProps> = ({ name, className, ...props }) => {
-  const isStroked = ['calendar', 'bike', 'mountain', 'clock'].includes(name);
+  const isStroked = ['calendar', 'bike', 'mountain', 'clock', 'level'].includes(name);
 
   return (
     <svg

@@ -7,7 +7,8 @@ const TourCard: React.FC<{ tour: Tour }> = ({ tour }) => (
     <img src={tour.imageUrl} alt={`eBike tour in ${tour.location}`} className="w-full h-56 object-cover" />
     <div className="p-6">
       <h3 className="text-2xl font-bold font-sans text-brand-primary">{tour.location}</h3>
-      <p className="mt-2 text-gray-600">{tour.tagline}</p>
+      {/* Fix: Property 'tagline' does not exist on type 'Tour'. Replaced with 'title'. */}
+      <p className="mt-2 text-gray-600">{tour.title}</p>
       <a href="#" className="inline-block mt-4 text-brand-accent font-bold hover:underline">
         Explore Tour &rarr;
       </a>
@@ -25,7 +26,7 @@ const Tours: React.FC = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {TOURS.map((tour) => (
-            <TourCard key={tour.location} tour={tour} />
+            <TourCard key={tour.title} tour={tour} />
           ))}
         </div>
       </div>

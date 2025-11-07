@@ -17,17 +17,21 @@ const StyleGuidePage: React.FC = () => {
   ];
 
   // Fix: Use the imported `IconName` type for `iconNames` array, ensuring type safety and resolving mapping errors.
-  const iconNames: IconName[] = ['calendar', 'bike', 'mountain', 'check-circle', 'users', 'map', 'star', 'clock'];
+  const iconNames: IconName[] = ['calendar', 'bike', 'mountain', 'check-circle', 'users', 'map', 'star', 'clock', 'map-pin', 'level'];
 
   const sampleTour: Tour = {
-    location: 'Sample Tour Location',
-    tagline: 'This is a sample tagline for the tour card component showcase.',
+    title: 'Style Guide Sample Tour',
+    location: 'Virtual Location',
+    description: 'This is a sample description to showcase how the tour card component renders with content.',
     imageUrl: 'https://picsum.photos/seed/styleguide/800/600',
-    category: 'Scenic',
+    category: 'Family-Friendly',
+    duration: '5 Hours',
+    difficulty: 'Moderate',
+    spotsLeft: 2,
   };
 
   return (
-    <div className="container mx-auto px-6 py-12 pt-24 font-body">
+    <div className="container mx-auto px-6 py-12 font-body">
       <h1 className="text-4xl font-extrabold border-b pb-4 mb-8 text-brand-dark">Style Guide</h1>
 
       {/* 1. Color Palette */}

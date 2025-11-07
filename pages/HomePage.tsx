@@ -92,7 +92,7 @@ const HomePage: React.FC = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredTours.map(tour => (
-              <TourCard key={tour.location} tour={tour} />
+              <TourCard key={tour.title} tour={tour} />
             ))}
           </div>
         </div>

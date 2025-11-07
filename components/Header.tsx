@@ -1,33 +1,21 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState } from 'react';
 
 const Header: React.FC = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const navLinks = [
-    { name: 'Tours by Zone', href: '#tours' },
+    { name: 'Tours', href: '#tours' },
     { name: 'How It Works', href: '#how-it-works' },
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'Why Us', href: '#why-us' },
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || isMenuOpen ? 'bg-brand-primary shadow-lg' : 'bg-transparent'
-      }`}
-    >
+    <header className="bg-white shadow-md">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <a href="#" className="text-2xl font-bold text-white font-sans">
+          <a href="#" className="text-2xl font-bold text-brand-primary font-sans">
             IRide Mexico
           </a>
 
@@ -36,7 +24,7 @@ const Header: React.FC = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-white hover:text-brand-secondary transition-colors"
+                className="text-brand-dark hover:text-brand-accent transition-colors"
               >
                 {link.name}
               </a>
@@ -45,8 +33,8 @@ const Header: React.FC = () => {
 
           <div className="hidden md:flex items-center">
             <a
-              href="#"
-              className="ml-8 bg-brand-secondary text-brand-primary font-bold py-2 px-6 rounded-full hover:bg-yellow-400 transition-transform duration-300 transform hover:scale-105"
+              href="#tours"
+              className="ml-8 bg-brand-accent text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition-transform duration-300 transform hover:scale-105"
             >
               Book a Tour
             </a>
@@ -55,7 +43,7 @@ const Header: React.FC = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white focus:outline-none"
+              className="text-brand-dark focus:outline-none"
             >
               <svg
                 className="w-6 h-6"
@@ -76,21 +64,21 @@ const Header: React.FC = () => {
         </div>
       </div>
       {isMenuOpen && (
-        <div className="md:hidden bg-brand-primary pb-4">
+        <div className="md:hidden bg-white pb-4 w-full">
           <nav className="flex flex-col items-center space-y-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="text-white hover:text-brand-secondary transition-colors text-lg"
+                className="text-brand-dark hover:text-brand-accent transition-colors text-lg"
               >
                 {link.name}
               </a>
             ))}
             <a
-              href="#"
-              className="mt-4 bg-brand-secondary text-brand-primary font-bold py-3 px-8 rounded-full hover:bg-yellow-400 transition-colors"
+              href="#tours"
+              className="mt-4 bg-brand-accent text-white font-bold py-3 px-8 rounded-full hover:bg-orange-600 transition-colors"
             >
               Book a Tour
             </a>

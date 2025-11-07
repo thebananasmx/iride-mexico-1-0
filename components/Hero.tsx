@@ -11,12 +11,12 @@ const slides = [
   {
     title: 'DISCOVER',
     subtitle: 'Historic Routes & Hidden Gems',
-    imageUrl: 'https://images.unsplash.com/photo-1591543620767-5846354409f8?q=80&w=2070&auto=format&fit=crop',
+    imageUrl: 'https://res.cloudinary.com/dg4wbuppq/image/upload/v1762524960/dmitry-spravko-9sl2pm5BhTs-unsplash_mvcewj.jpg',
   },
   {
     title: 'EXPERIENCE',
     subtitle: 'The Heartbeat of the City',
-    imageUrl: 'https://images.unsplash.com/photo-1558981852-426c6c22a060?q=80&w=2070&auto=format&fit=crop',
+    imageUrl: 'https://res.cloudinary.com/dg4wbuppq/image/upload/v1762524962/caitlyn-vermeij-4YeRAL1GvgY-unsplash_y6ith0.jpg',
   },
 ];
 

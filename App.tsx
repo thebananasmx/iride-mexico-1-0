@@ -47,10 +47,17 @@ const App: React.FC = () => {
 
 
   return (
-    <div className="bg-brand-light font-body text-brand-dark overflow-x-hidden">
+    <div className="bg-brand-light font-body text-brand-dark">
       <Header />
-      <main>{pageContent}</main>
-      <Footer />
+      {/* 
+        The overflow-x-hidden class is applied here to prevent horizontal scrolling 
+        caused by some decorative elements, while allowing the sticky header to function correctly.
+        The header needs to be outside any container with an 'overflow' property.
+      */}
+      <div className="overflow-x-hidden">
+        <main>{pageContent}</main>
+        <Footer />
+      </div>
     </div>
   );
 };

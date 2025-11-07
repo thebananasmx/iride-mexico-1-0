@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import StyleGuidePage from './pages/StyleGuidePage';
 import TourDetailPage from './pages/TourDetailPage';
+import ChangelogPage from './pages/ChangelogPage';
 
 const App: React.FC = () => {
   // Simple router based on state and window.location
@@ -40,6 +41,8 @@ const App: React.FC = () => {
     pageContent = <TourDetailPage />;
   } else if (path === '/style-guide') {
     pageContent = <StyleGuidePage />;
+  } else if (path === '/changelog') {
+    pageContent = <ChangelogPage />;
   } else {
     // Default to the home page content
     pageContent = <HomePage />;

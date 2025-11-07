@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { handleNavigate } from '../utils';
 
@@ -38,6 +39,11 @@ const Footer: React.FC = () => {
                   <li>
                     <a href="/style-guide" onClick={(e) => handleNavigate(e, '/style-guide')} className="text-base text-gray-400 hover:text-white">
                       Style Guide
+                    </a>
+                  </li>
+                   <li>
+                    <a href="/changelog" onClick={(e) => handleNavigate(e, '/changelog')} className="text-base text-gray-400 hover:text-white">
+                      Changelog
                     </a>
                   </li>
                 </ul>

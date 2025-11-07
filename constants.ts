@@ -1,30 +1,37 @@
-import { Tour, Testimonial } from './types';
+import { Tour, Testimonial, TourCategory } from './types';
+
+export const tourCategories: TourCategory[] = ['City', 'Scenic', 'Historic'];
 
 export const TOURS: Tour[] = [
   {
     location: 'Reforma & Chapultepec',
     tagline: 'Ride down the grand avenue and explore the city\'s largest park.',
     imageUrl: 'https://picsum.photos/seed/reforma/800/600',
+    category: 'Scenic',
   },
   {
     location: 'Coyoacán',
     tagline: 'Discover the colorful, bohemian heart of Mexico City.',
     imageUrl: 'https://picsum.photos/seed/coyoacan/800/600',
+    category: 'Historic',
   },
   {
     location: 'Centro Histórico',
     tagline: 'Explore ancient ruins, grand palaces, and vibrant markets.',
     imageUrl: 'https://picsum.photos/seed/zocalo/800/600',
+    category: 'Historic',
   },
   {
     location: 'Polanco',
     tagline: 'Cruise through upscale boutiques and world-class museums.',
     imageUrl: 'https://picsum.photos/seed/polanco/800/600',
+    category: 'City',
   },
   {
     location: 'La Condesa & Roma',
     tagline: 'Experience the trendy, art-deco neighborhoods of CDMX.',
     imageUrl: 'https://picsum.photos/seed/condesa/800/600',
+    category: 'City',
   },
 ];
 

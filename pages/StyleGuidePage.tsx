@@ -3,122 +3,125 @@ import React from 'react';
 import Button from '../components/Button';
 import Icon from '../components/Icon';
 import TourCard from '../components/TourCard';
-// Fix: Import `IconName` to correctly type the list of icons and remove the dependency on `propTypes`.
-import { Tour, IconName } from '../types';
+import { TOURS, TESTIMONIALS } from '../constants';
+import { IconName, Testimonial } from '../types';
 
 const StyleGuidePage: React.FC = () => {
-
-  const brandColors = [
-    { name: 'Primary', hex: '#0D4C5C', tailwindClass: 'bg-brand-primary' },
-    { name: 'Secondary', hex: '#F2A900', tailwindClass: 'bg-brand-secondary' },
-    { name: 'Accent', hex: '#F24A09', tailwindClass: 'bg-brand-accent' },
-    { name: 'Light', hex: '#F5F1E9', tailwindClass: 'bg-brand-light' },
-    { name: 'Dark', hex: '#232323', tailwindClass: 'bg-brand-dark' },
+  const colors = [
+    { name: 'Primary', hex: '#0D4C5C', className: 'bg-brand-primary' },
+    { name: 'Secondary', hex: '#F2A900', className: 'bg-brand-secondary' },
+    { name: 'Accent', hex: '#F24A09', className: 'bg-brand-accent' },
+    { name: 'Light', hex: '#F5F1E9', className: 'bg-brand-light' },
+    { name: 'Dark', hex: '#232323', className: 'bg-brand-dark' },
   ];
 
-  // Fix: Use the imported `IconName` type for `iconNames` array, ensuring type safety and resolving mapping errors.
   const iconNames: IconName[] = ['calendar', 'bike', 'mountain', 'check-circle', 'users', 'map', 'star', 'clock', 'map-pin', 'level'];
 
-  const sampleTour: Tour = {
-    title: 'Style Guide Sample Tour',
-    location: 'Virtual Location',
-    description: 'This is a sample description to showcase how the tour card component renders with content.',
-    imageUrl: 'https://picsum.photos/seed/styleguide/800/600',
-    category: 'Family-Friendly',
-    duration: '5 Hours',
-    difficulty: 'Moderate',
-    spotsLeft: 2,
-  };
+  // Re-defining TestimonialCard locally for display purposes as it's not exported.
+  const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => (
+    <div className="bg-white p-8 rounded-lg shadow-lg h-full flex flex-col">
+      <div className="flex mb-4">
+        {[...Array(5)].map((_, i) => (
+          <Icon key={i} name="star" className="text-brand-secondary w-5 h-5" />
+        ))}
+      </div>
+      <p className="text-gray-600 italic mb-6 flex-grow">"{testimonial.quote}"</p>
+      <div>
+        <p className="font-bold text-brand-primary">{testimonial.author}</p>
+        <p className="text-sm text-gray-500">{testimonial.location}</p>
+      </div>
+    </div>
+  );
 
   return (
-    <div className="container mx-auto px-6 py-12 font-body">
-      <h1 className="text-4xl font-extrabold border-b pb-4 mb-8 text-brand-dark">Style Guide</h1>
+    <div className="bg-white">
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <header className="text-center mb-16">
+          <h1 className="text-5xl font-bold font-sans text-brand-primary">Style Guide</h1>
+          <p className="mt-4 text-lg text-gray-600">A visual reference for the UI components of IRide Mexico.</p>
+        </header>
 
-      {/* 1. Color Palette */}
-      <section className="mb-12">
-        <h2 className="text-3xl font-bold mb-4 text-brand-primary">Color Palette</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {brandColors.map(color => (
-            <div key={color.name} className="shadow rounded-lg">
-              <div className={`h-24 rounded-t-lg ${color.tailwindClass}`}></div>
-              <div className="bg-white p-4 rounded-b-lg">
-                <p className="font-bold">{color.name}</p>
-                <p className="text-gray-600">{color.hex}</p>
+        {/* Colors Section */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold font-sans text-brand-primary border-b-2 border-gray-200 pb-2 mb-8">Colors</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            {colors.map(color => (
+              <div key={color.name} className="text-center">
+                <div className={`w-full h-32 rounded-lg shadow-md ${color.className} ${color.name === 'Light' ? 'border border-gray-200' : ''}`}></div>
+                <h3 className="mt-4 text-lg font-semibold">{color.name}</h3>
+                <p className="text-gray-500 font-mono">{color.hex}</p>
               </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Typography Section */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold font-sans text-brand-primary border-b-2 border-gray-200 pb-2 mb-8">Typography</h2>
+          <div className="space-y-8">
+            <div>
+              <p className="text-sm text-gray-500 font-mono mb-1">Heading 1 (Poppins, font-sans, extrabold)</p>
+              <h1 className="text-5xl font-extrabold font-sans text-brand-dark">The quick brown fox jumps over the lazy dog.</h1>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 2. Typography */}
-      <section className="mb-12">
-        <h2 className="text-3xl font-bold mb-4 text-brand-primary">Typography</h2>
-        <div className="space-y-4 bg-white p-6 rounded-lg shadow font-sans">
-          <h1 className="text-5xl font-extrabold text-brand-dark">Heading 1 (Poppins, extrabold)</h1>
-          <h2 className="text-4xl font-bold text-brand-dark">Heading 2 (Poppins, bold)</h2>
-          <h3 className="text-2xl font-semibold text-brand-dark">Heading 3 (Poppins, semibold)</h3>
-          <h4 className="text-xl font-semibold text-brand-dark">Heading 4 (Poppins, semibold)</h4>
-          <p className="text-base font-body text-brand-dark">
-            This is a body paragraph (Lato, regular). It's used for longer-form text to ensure readability. 
-            It includes <a href="#" className="text-brand-accent hover:underline">links</a> that stand out.
-          </p>
-        </div>
-      </section>
-
-      {/* 3. Buttons */}
-      <section className="mb-12">
-        <h2 className="text-3xl font-bold mb-4 text-brand-primary">Buttons</h2>
-        <div className="bg-white p-6 rounded-lg shadow space-y-6">
-          <div>
-            <h3 className="text-xl font-semibold mb-2">Component Variants</h3>
-            <div className="flex flex-wrap items-center gap-4">
-              <Button variant="primary">Primary CTA</Button>
-              <Button variant="secondary">Secondary CTA</Button>
-              <Button variant="outline">Outline CTA</Button>
+            <div>
+              <p className="text-sm text-gray-500 font-mono mb-1">Heading 2 (Poppins, font-sans, bold)</p>
+              <h2 className="text-4xl font-bold font-sans text-brand-primary">The quick brown fox jumps over the lazy dog.</h2>
+            </div>
+             <div>
+              <p className="text-sm text-gray-500 font-mono mb-1">Heading 3 (Poppins, font-sans, bold)</p>
+              <h3 className="text-2xl font-bold font-sans text-brand-primary">The quick brown fox jumps over the lazy dog.</h3>
+            </div>
+            <div>
+              <p className="text-sm text-gray-500 font-mono mb-1">Body Text (Lato, font-body)</p>
+              <p className="text-lg text-brand-dark font-body">
+                This is the body font, perfect for longer paragraphs of text. It's designed for readability and a clean, modern look. Our guided eBike tours are perfect for all skill levels, allowing you to experience the vibrant culture and history of CDMX like never before.
+              </p>
             </div>
           </div>
-           <div>
-            <h3 className="text-xl font-semibold mb-2">Filter Buttons</h3>
-            <div className="flex flex-wrap items-center gap-4">
-               <button className="px-4 py-2 rounded-full font-semibold transition-colors bg-brand-accent text-white">
-                Active Filter
-               </button>
-               <button className="px-4 py-2 rounded-full font-semibold transition-colors bg-gray-200 text-gray-700">
-                Inactive Filter
-               </button>
+        </section>
+
+        {/* Buttons Section */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold font-sans text-brand-primary border-b-2 border-gray-200 pb-2 mb-8">Buttons</h2>
+          <div className="flex flex-wrap items-center gap-6">
+            <Button href="#" variant="primary">Primary Button</Button>
+            <Button href="#" variant="secondary">Secondary Button</Button>
+            <Button href="#" variant="outline">Outline Button</Button>
+          </div>
+        </section>
+
+        {/* Icons Section */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold font-sans text-brand-primary border-b-2 border-gray-200 pb-2 mb-8">Icons</h2>
+          <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-6">
+            {iconNames.map(name => (
+              <div key={name} className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 p-4 bg-brand-light rounded-lg flex items-center justify-center">
+                   <Icon name={name} className="w-8 h-8 text-brand-primary" />
+                </div>
+                <p className="mt-2 text-xs text-gray-600 font-mono">{name}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Cards Section */}
+        <section>
+          <h2 className="text-3xl font-bold font-sans text-brand-primary border-b-2 border-gray-200 pb-2 mb-8">Cards</h2>
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
+            <div>
+              <h3 className="text-xl font-bold mb-4 text-center">Tour Card</h3>
+              <TourCard tour={TOURS[0]} />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-4 text-center">Testimonial Card</h3>
+              <TestimonialCard testimonial={TESTIMONIALS[0]} />
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* 4. Icons */}
-      <section className="mb-12">
-        <h2 className="text-3xl font-bold mb-4 text-brand-primary">Icons</h2>
-        <div className="bg-white p-6 rounded-lg shadow flex flex-wrap items-center gap-6">
-          {iconNames.map(name => (
-            <div key={name} className="flex flex-col items-center gap-2 text-center">
-              <Icon name={name} className="w-8 h-8 text-brand-accent" />
-              <span className="text-xs text-gray-600">{name}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 5. Components */}
-      <section>
-        <h2 className="text-3xl font-bold mb-4 text-brand-primary">Components</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className='lg:col-span-1 md:col-span-2'>
-                <h3 className="text-xl font-semibold mb-2">Tour Card</h3>
-                <TourCard tour={sampleTour} />
-            </div>
-        </div>
-      </section>
+        </section>
+      </main>
     </div>
   );
 };
-
-// Fix: Remove the unnecessary and incorrectly placed `Icon.propTypes` block.
-// Type checking is already handled by TypeScript, and this block was causing compilation errors.
 
 export default StyleGuidePage;

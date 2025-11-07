@@ -1,21 +1,32 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
 
   const navLinks = [
-    { name: 'Tours', href: '#tours' },
-    { name: 'How It Works', href: '#how-it-works' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Why Us', href: '#why-us' },
+    { name: 'Tours', href: '/#tours' },
+    { name: 'How It Works', href: '/#how-it-works' },
+    { name: 'Testimonials', href: '/#testimonials' },
+    { name: 'Why Us', href: '/#why-us' },
   ];
 
   return (
-    <header className="bg-white shadow-md">
+    <header className={`sticky top-0 z-50 bg-white/95 backdrop-blur-sm transition-shadow duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <a href="#" className="text-2xl font-bold text-brand-primary font-sans">
+          <a href="/" className="text-2xl font-bold text-brand-primary font-sans">
             IRide Mexico
           </a>
 
@@ -33,7 +44,7 @@ const Header: React.FC = () => {
 
           <div className="hidden md:flex items-center">
             <a
-              href="#tours"
+              href="/#tours"
               className="ml-8 bg-brand-accent text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition-transform duration-300 transform hover:scale-105"
             >
               Book a Tour
@@ -64,7 +75,7 @@ const Header: React.FC = () => {
         </div>
       </div>
       {isMenuOpen && (
-        <div className="md:hidden bg-white pb-4 w-full">
+        <div className="md:hidden bg-white/95 backdrop-blur-sm pb-4 w-full shadow-lg">
           <nav className="flex flex-col items-center space-y-4">
             {navLinks.map((link) => (
               <a
@@ -77,7 +88,7 @@ const Header: React.FC = () => {
               </a>
             ))}
             <a
-              href="#tours"
+              href="/#tours"
               className="mt-4 bg-brand-accent text-white font-bold py-3 px-8 rounded-full hover:bg-orange-600 transition-colors"
             >
               Book a Tour

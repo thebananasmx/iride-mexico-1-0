@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const Footer: React.FC = () => {
@@ -6,7 +7,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
-            <a href="#" className="text-3xl font-bold text-white font-sans">
+            <a href="/" className="text-3xl font-bold text-white font-sans">
               IRide Mexico
             </a>
             <p className="text-gray-400 text-base">
@@ -34,6 +35,7 @@ const Footer: React.FC = () => {
                   <li><a href="#" className="text-base text-gray-400 hover:text-white">FAQ</a></li>
                   <li><a href="#" className="text-base text-gray-400 hover:text-white">Contact</a></li>
                   <li><a href="#" className="text-base text-gray-400 hover:text-white">Privacy Policy</a></li>
+                  <li><a href="/style-guide" className="text-base text-gray-400 hover:text-white">Style Guide</a></li>
                 </ul>
               </div>
             </div>

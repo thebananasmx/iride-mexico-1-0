@@ -6,7 +6,6 @@ import Tours from '../components/Tours';
 import Testimonials from '../components/Testimonials';
 import WhyChooseUs from '../components/WhyChooseUs';
 import LeadCapture from '../components/LeadCapture';
-import StickyCTA from '../components/StickyCTA';
 
 const HomePage: React.FC = () => {
   return (
@@ -17,7 +16,6 @@ const HomePage: React.FC = () => {
       <Testimonials />
       <WhyChooseUs />
       <LeadCapture />
-      <StickyCTA />
     </>
   );
 };

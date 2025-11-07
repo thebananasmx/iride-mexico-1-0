@@ -43,7 +43,11 @@ const Hero: React.FC = () => {
         {/* Text Column */}
         <div 
           className="w-full md:w-5/12 flex flex-col justify-center items-start p-8 sm:p-12 lg:p-16 text-brand-dark"
-          style={{ backgroundImage: "url('https://res.cloudinary.com/dg4wbuppq/image/upload/v1762538373/topo_map_y8eqj8.jpg')" }}
+          style={{ 
+            backgroundImage: "url('https://res.cloudinary.com/dg4wbuppq/image/upload/v1762538373/topo_map_y8eqj8.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
         >
           <h2 className="text-4xl md:text-5xl font-extrabold font-sans text-brand-accent uppercase tracking-widest">
             {slides[currentIndex].title}

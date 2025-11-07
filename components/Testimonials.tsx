@@ -3,7 +3,7 @@ import { Testimonial } from '../types';
 import { TESTIMONIALS } from '../constants';
 import Icon from './Icon';
 
-const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => (
+export const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => (
   <div className="bg-white p-8 rounded-lg shadow-lg h-full flex flex-col">
     <div className="flex mb-4">
       {[...Array(5)].map((_, i) => (

@@ -3,8 +3,9 @@ import React from 'react';
 import Button from '../components/Button';
 import Icon from '../components/Icon';
 import TourCard from '../components/TourCard';
+import { TestimonialCard } from '../components/Testimonials';
 import { TOURS, TESTIMONIALS } from '../constants';
-import { IconName, Testimonial } from '../types';
+import { IconName } from '../types';
 
 const StyleGuidePage: React.FC = () => {
   const colors = [
@@ -16,22 +17,6 @@ const StyleGuidePage: React.FC = () => {
   ];
 
   const iconNames: IconName[] = ['calendar', 'bike', 'mountain', 'check-circle', 'users', 'map', 'star', 'clock', 'map-pin', 'level'];
-
-  // Re-defining TestimonialCard locally for display purposes as it's not exported.
-  const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => (
-    <div className="bg-white p-8 rounded-lg shadow-lg h-full flex flex-col">
-      <div className="flex mb-4">
-        {[...Array(5)].map((_, i) => (
-          <Icon key={i} name="star" className="text-brand-secondary w-5 h-5" />
-        ))}
-      </div>
-      <p className="text-gray-600 italic mb-6 flex-grow">"{testimonial.quote}"</p>
-      <div>
-        <p className="font-bold text-brand-primary">{testimonial.author}</p>
-        <p className="text-sm text-gray-500">{testimonial.location}</p>
-      </div>
-    </div>
-  );
 
   return (
     <div className="bg-white">

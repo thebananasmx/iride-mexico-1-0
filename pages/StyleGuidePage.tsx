@@ -20,7 +20,7 @@ const StyleGuidePage: React.FC = () => {
 
   return (
     <div className="bg-white">
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <header className="text-center mb-16">
           <h1 className="text-5xl font-bold font-sans text-brand-primary">Style Guide</h1>
           <p className="mt-4 text-lg text-gray-600">A visual reference for the UI components of IRide Mexico.</p>
@@ -104,7 +104,7 @@ const StyleGuidePage: React.FC = () => {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 };

@@ -1,16 +1,29 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
-import Testimonials from './components/Testimonials';
-import WhyChooseUs from './components/WhyChooseUs';
-import LeadCapture from './components/LeadCapture';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import StyleGuidePage from './pages/StyleGuidePage';
 
 const App: React.FC = () => {
-  // Simple router based on the window's pathname
-  const path = window.location.pathname;
+  // Simple router based on state and window.location
+  const [path, setPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setPath(window.location.pathname);
+    };
+
+    // Listen for custom navigation events triggered by link clicks
+    window.addEventListener('navigate', handleLocationChange);
+    // Listen for browser back/forward buttons
+    window.addEventListener('popstate', handleLocationChange);
+
+    return () => {
+      window.removeEventListener('navigate', handleLocationChange);
+      window.removeEventListener('popstate', handleLocationChange);
+    };
+  }, []);
 
   let pageContent;
 
@@ -18,20 +31,13 @@ const App: React.FC = () => {
     pageContent = <StyleGuidePage />;
   } else {
     // Default to the home page content
-    pageContent = (
-      <main>
-        <HomePage />
-        <Testimonials />
-        <WhyChooseUs />
-        <LeadCapture />
-      </main>
-    );
+    pageContent = <HomePage />;
   }
 
   return (
     <div className="bg-brand-light font-body text-brand-dark">
       <Header />
-      {pageContent}
+      <main>{pageContent}</main>
       <Footer />
     </div>
   );

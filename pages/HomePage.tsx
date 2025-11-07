@@ -1,8 +1,12 @@
+
 import React, { useState } from 'react';
 import { TOURS, tourCategories } from '../constants';
 import { TourCategory } from '../types';
 import TourCard from '../components/TourCard';
 import Button from '../components/Button';
+import Testimonials from '../components/Testimonials';
+import WhyChooseUs from '../components/WhyChooseUs';
+import LeadCapture from '../components/LeadCapture';
 
 const HomePage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<TourCategory | 'All'>('All');
@@ -97,6 +101,10 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <Testimonials />
+      <WhyChooseUs />
+      <LeadCapture />
 
       {/* 4. Sticky CTA */}
       <div className="sticky bottom-0 z-40 p-4 md:hidden bg-white bg-opacity-90 backdrop-blur-sm shadow-2xl-top">

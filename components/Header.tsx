@@ -1,6 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
 
+const handleNavigate = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  if (e.metaKey || e.ctrlKey) return;
+  e.preventDefault();
+  window.history.pushState({}, '', href);
+  const navEvent = new Event('navigate');
+  window.dispatchEvent(navEvent);
+};
+
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,7 +34,7 @@ const Header: React.FC = () => {
     <header className={`sticky top-0 z-50 bg-white/95 backdrop-blur-sm transition-shadow duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <a href="/" className="text-2xl font-bold text-brand-primary font-sans">
+          <a href="/" onClick={(e) => handleNavigate(e, '/')} className="text-2xl font-bold text-brand-primary font-sans">
             IRide Mexico
           </a>
 

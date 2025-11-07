@@ -1,5 +1,3 @@
-// Fix: Import `ReactNode` to provide a type for React components passed as props, resolving the 'Cannot find namespace JSX' error.
-import type { ReactNode } from 'react';
 
 export type TourCategory = 'Urban Sightseeing' | 'Adventure Mountain' | 'Family-Friendly';
 export type IconName = 'calendar' | 'bike' | 'mountain' | 'check-circle' | 'users' | 'map' | 'star' | 'clock' | 'map-pin' | 'level';

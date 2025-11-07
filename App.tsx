@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import StyleGuidePage from './pages/StyleGuidePage';
+import TourDetailPage from './pages/TourDetailPage';
 
 const App: React.FC = () => {
   // Simple router based on state and window.location
@@ -27,12 +28,15 @@ const App: React.FC = () => {
 
   let pageContent;
 
-  if (path === '/style-guide') {
+  if (path.startsWith('/tours/')) {
+    pageContent = <TourDetailPage />;
+  } else if (path === '/style-guide') {
     pageContent = <StyleGuidePage />;
   } else {
     // Default to the home page content
     pageContent = <HomePage />;
   }
+
 
   return (
     <div className="bg-brand-light font-body text-brand-dark">

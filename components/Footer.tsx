@@ -1,13 +1,5 @@
-
 import React from 'react';
-
-const handleNavigate = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-  if (e.metaKey || e.ctrlKey) return;
-  e.preventDefault();
-  window.history.pushState({}, '', href);
-  const navEvent = new Event('navigate');
-  window.dispatchEvent(navEvent);
-};
+import { handleNavigate } from '../utils';
 
 const Footer: React.FC = () => {
   return (

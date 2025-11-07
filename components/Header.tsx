@@ -1,14 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import Button from './Button';
-
-const handleNavigate = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-  if (e.metaKey || e.ctrlKey) return;
-  e.preventDefault();
-  window.history.pushState({}, '', href);
-  const navEvent = new Event('navigate');
-  window.dispatchEvent(navEvent);
-};
+import { handleNavigate } from '../utils';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

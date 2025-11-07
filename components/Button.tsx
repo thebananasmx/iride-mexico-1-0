@@ -9,7 +9,7 @@ const Button: React.FC<ButtonProps> = ({ variant = 'primary', children, classNam
   const baseStyle = 'inline-block font-bold text-lg py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:scale-100';
   
   const variantStyles = {
-    primary: 'bg-brand-accent text-white shadow-lg hover:bg-orange-600',
+    primary: 'bg-brand-accent text-white shadow-lg hover:bg-brand-dark',
     secondary: 'bg-brand-secondary text-brand-primary shadow-lg hover:bg-yellow-400',
     outline: 'border-2 border-brand-accent text-brand-accent bg-transparent hover:bg-brand-accent hover:text-white',
   };

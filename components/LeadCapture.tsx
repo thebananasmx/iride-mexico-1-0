@@ -40,7 +40,7 @@ const LeadCapture: React.FC = () => {
           <div className="-mt-6 aspect-w-5 aspect-h-3 md:aspect-w-2 md:aspect-h-1">
             <img
               className="transform translate-x-6 translate-y-6 rounded-md object-cover object-left-top sm:translate-x-16 lg:translate-y-20"
-              src="https://picsum.photos/seed/taco-guide/500/500"
+              src="https://picsum.photos/seed/tacos-mexico/600/600"
               alt="A person eating tacos at an outdoor market in Mexico"
             />
           </div>

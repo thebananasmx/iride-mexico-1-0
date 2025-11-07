@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import Button from './Button';
 
 const handleNavigate = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
   if (e.metaKey || e.ctrlKey) return;
@@ -51,12 +52,9 @@ const Header: React.FC = () => {
           </nav>
 
           <div className="hidden md:flex items-center">
-            <a
-              href="/#tours"
-              className="ml-8 bg-brand-accent text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition-transform duration-300 transform hover:scale-105"
-            >
+            <Button href="/#tours" variant="primary" className="ml-8 !py-2 !px-6 !text-base">
               Book a Tour
-            </a>
+            </Button>
           </div>
 
           <div className="md:hidden">
@@ -84,7 +82,7 @@ const Header: React.FC = () => {
       </div>
       {isMenuOpen && (
         <div className="md:hidden bg-white/95 backdrop-blur-sm pb-4 w-full shadow-lg">
-          <nav className="flex flex-col items-center space-y-4">
+          <nav className="flex flex-col items-center space-y-4 pt-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -95,12 +93,14 @@ const Header: React.FC = () => {
                 {link.name}
               </a>
             ))}
-            <a
+            <Button
               href="/#tours"
-              className="mt-4 bg-brand-accent text-white font-bold py-3 px-8 rounded-full hover:bg-orange-600 transition-colors"
+              variant="primary"
+              onClick={() => setIsMenuOpen(false)}
+              className="mt-4"
             >
               Book a Tour
-            </a>
+            </Button>
           </nav>
         </div>
       )}

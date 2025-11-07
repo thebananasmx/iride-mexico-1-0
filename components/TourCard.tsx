@@ -15,7 +15,7 @@ const TourCard: React.FC<{ tour: Tour }> = ({ tour }) => (
     
     <div className="p-6 flex flex-col flex-grow">
       <div>
-        <span className="inline-block bg-yellow-200 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full uppercase mb-3">
+        <span className="inline-block bg-yellow-200 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">
           {tour.category}
         </span>
         <h3 className="text-xl font-bold font-sans text-brand-dark mb-1 transition-colors group-hover:text-brand-accent">{tour.title}</h3>

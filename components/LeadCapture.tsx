@@ -29,7 +29,7 @@ const LeadCapture: React.FC = () => {
                 <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-brand-primary bg-brand-secondary hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-primary focus:ring-brand-secondary"
+                    className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-brand-primary hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-primary focus:ring-gray-500"
                   >
                     Send The Guide!
                   </button>

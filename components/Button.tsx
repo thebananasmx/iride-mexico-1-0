@@ -11,7 +11,7 @@ const Button: React.FC<ButtonProps> = ({ variant = 'primary', children, classNam
   
   const variantStyles = {
     primary: 'bg-brand-accent text-white shadow-lg hover:bg-brand-dark',
-    secondary: 'bg-brand-secondary text-brand-primary shadow-lg hover:bg-yellow-400',
+    secondary: 'bg-brand-primary text-white shadow-lg hover:bg-gray-600',
     outline: 'border-2 border-brand-accent text-brand-accent bg-transparent hover:bg-brand-accent hover:text-white',
   };
 

@@ -26,6 +26,14 @@ const App: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    // On path change, scroll to top of page, unless it's a hash link.
+    // The browser will handle scrolling for hash links.
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [path]);
+
   let pageContent;
 
   if (path.startsWith('/tours/')) {

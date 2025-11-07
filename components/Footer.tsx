@@ -4,11 +4,11 @@ import { handleNavigate } from '../utils';
 const Footer: React.FC = () => {
   return (
     <footer className="bg-brand-dark text-white">
-      <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div className="container py-12">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
             <a href="/" onClick={(e) => handleNavigate(e, '/')} className="text-3xl font-bold text-white font-sans">
-              IRide Mexico
+              Ride Mexico
             </a>
             <p className="text-gray-400 text-base">
               Mexico City's Best Scenic and Historic eBike Tours.
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className="mt-12 border-t border-gray-700 pt-8">
-          <p className="text-base text-gray-400 xl:text-center">&copy; {new Date().getFullYear()} IRide Mexico. All rights reserved.</p>
+          <p className="text-base text-gray-400 xl:text-center">&copy; {new Date().getFullYear()} Ride Mexico. All rights reserved.</p>
         </div>
       </div>
     </footer>

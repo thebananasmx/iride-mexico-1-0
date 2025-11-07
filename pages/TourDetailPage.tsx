@@ -11,7 +11,7 @@ const TourDetailPage: React.FC = () => {
 
     if (!tour) {
         return (
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+            <div className="container py-20 text-center">
                 <h1 className="text-4xl font-bold font-sans text-brand-primary">Tour Not Found</h1>
                 <p className="mt-4 text-lg text-gray-600">Sorry, we couldn't find the tour you're looking for.</p>
                 <div className="mt-8">
@@ -33,7 +33,7 @@ const TourDetailPage: React.FC = () => {
     return (
         <div className="bg-white">
             <header className="py-12 bg-brand-light border-b border-gray-200">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="container">
                     <span className="inline-block bg-yellow-200 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">
                         {tour.category}
                     </span>
@@ -45,7 +45,7 @@ const TourDetailPage: React.FC = () => {
                 </div>
             </header>
 
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div className="container py-16">
                 <div className="lg:grid lg:grid-cols-3 lg:gap-12">
                     {/* Left side - Gallery & Description */}
                     <div className="lg:col-span-2">

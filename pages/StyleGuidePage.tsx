@@ -9,7 +9,7 @@ import { IconName } from '../types';
 
 const StyleGuidePage: React.FC = () => {
   const colors = [
-    { name: 'Primary', hex: '#0D4C5C', className: 'bg-brand-primary' },
+    { name: 'Primary', hex: '#232323', className: 'bg-brand-primary' },
     { name: 'Secondary', hex: '#F2A900', className: 'bg-brand-secondary' },
     { name: 'Accent', hex: '#F24A09', className: 'bg-brand-accent' },
     { name: 'Light', hex: '#F5F1E9', className: 'bg-brand-light' },
@@ -20,10 +20,10 @@ const StyleGuidePage: React.FC = () => {
 
   return (
     <div className="bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="container py-16">
         <header className="text-center mb-16">
           <h1 className="text-5xl font-bold font-sans text-brand-primary">Style Guide</h1>
-          <p className="mt-4 text-lg text-gray-600">A visual reference for the UI components of IRide Mexico.</p>
+          <p className="mt-4 text-lg text-gray-600">A visual reference for the UI components of Ride Mexico.</p>
         </header>
 
         {/* Colors Section */}

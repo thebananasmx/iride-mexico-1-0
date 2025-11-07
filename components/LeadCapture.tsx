@@ -3,7 +3,7 @@ import React from 'react';
 const LeadCapture: React.FC = () => {
   return (
     <section className="bg-brand-light py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container">
         <div className="bg-brand-primary rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4">
           <div className="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
             <div className="lg:self-center">

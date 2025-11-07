@@ -39,7 +39,7 @@ const App: React.FC = () => {
 
 
   return (
-    <div className="bg-brand-light font-body text-brand-dark">
+    <div className="bg-brand-light font-body text-brand-dark overflow-x-hidden">
       <Header />
       <main>{pageContent}</main>
       <Footer />

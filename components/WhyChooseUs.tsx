@@ -23,10 +23,10 @@ const features: Feature[] = [
 const WhyChooseUs: React.FC = () => {
   return (
     <section id="why-us" className="py-20 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container">
         <div className="lg:grid lg:grid-cols-3 lg:gap-8 lg:items-center">
           <div className="lg:col-span-1">
-            <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-primary">The IRide Mexico Difference</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-primary">The Ride Mexico Difference</h2>
             <p className="mt-4 text-lg text-gray-600">
               We're dedicated to providing more than just a bike rental. We deliver unforgettable guided adventures with a focus on safety, fun, and local expertise in Mexico City.
             </p>

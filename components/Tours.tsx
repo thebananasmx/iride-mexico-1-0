@@ -13,7 +13,7 @@ const Tours: React.FC = () => {
 
   return (
     <section id="tours" className="py-16 bg-brand-light">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container">
         <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-primary text-center">Our Tours</h2>
         <div className="flex justify-center flex-wrap gap-4 my-8">
           <button

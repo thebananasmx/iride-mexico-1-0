@@ -22,7 +22,7 @@ const HowItWorks: React.FC = () => {
 
   return (
     <section className="py-16 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="container text-center">
         <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-primary">How It Works</h2>
         <p className="mt-4 text-lg text-gray-600">Your adventure is just 3 simple steps away.</p>
         <div className="mt-12 grid md:grid-cols-3 gap-8 md:gap-12">

@@ -21,7 +21,7 @@ export const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testim
 const Testimonials: React.FC = () => {
   return (
     <section id="testimonials" className="py-20 bg-brand-primary">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold font-sans text-white">What Our Riders Are Saying</h2>
           <p className="mt-4 text-lg text-gray-300">Real stories from our happy customers.</p>

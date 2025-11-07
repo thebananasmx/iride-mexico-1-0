@@ -25,10 +25,10 @@ const Header: React.FC = () => {
 
   return (
     <header className={`sticky top-0 z-50 bg-white/95 backdrop-blur-sm transition-shadow duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container">
         <div className="flex items-center justify-between h-20">
           <a href="/" onClick={(e) => handleNavigate(e, '/')} className="text-2xl font-bold text-brand-primary font-sans">
-            IRide Mexico
+            Ride Mexico
           </a>
 
           <nav className="hidden md:flex items-center space-x-8">

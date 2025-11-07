@@ -4,8 +4,8 @@ const LeadCapture: React.FC = () => {
   return (
     <section className="bg-brand-light py-20">
       <div className="container">
-        <div className="bg-brand-primary rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4">
-          <div className="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
+        <div className="bg-brand-primary rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2">
+          <div className="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 xl:py-20 xl:px-20">
             <div className="lg:self-center">
               <h2 className="text-3xl font-extrabold text-white sm:text-4xl font-sans">
                 <span className="block">Get Your Free Taco Guide</span>
@@ -37,11 +37,11 @@ const LeadCapture: React.FC = () => {
               </form>
             </div>
           </div>
-          <div className="-mt-6 aspect-w-5 aspect-h-3 md:aspect-w-2 md:aspect-h-1">
+          <div className="h-80 lg:h-full">
             <img
-              className="transform translate-y-6 rounded-md object-cover object-left-top lg:translate-x-16 lg:translate-y-20"
-              src="https://picsum.photos/seed/tacos-mexico/600/600"
-              alt="A person eating tacos at an outdoor market in Mexico"
+              className="w-full h-full object-cover"
+              src="https://res.cloudinary.com/dg4wbuppq/image/upload/v1762540302/taco_bmgbbw.jpg"
+              alt="A delicious spread of various tacos at a vibrant Mexican market"
             />
           </div>
         </div>

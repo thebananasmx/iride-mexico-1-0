@@ -36,7 +36,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled && !isMenuOpen ? 'shadow-md' : ''} ${isMenuOpen ? 'bg-transparent' : 'bg-white/95 backdrop-blur-sm'}`}>
+      <header className={`sticky top-0 z-50 transition-all duration-300 md:shadow-md ${isScrolled && !isMenuOpen ? 'shadow-md' : ''} ${isMenuOpen ? 'bg-transparent' : 'bg-white/95 backdrop-blur-sm'}`}>
         <div className="container">
           <div className="flex items-center justify-between h-20">
             <a href="/" onClick={(e) => handleNavigate(e, '/')} className={`relative z-[51] text-2xl font-bold font-sans transition-colors duration-300 ${isMenuOpen ? 'text-white' : 'text-brand-primary'}`}>

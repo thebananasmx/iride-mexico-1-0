@@ -3,11 +3,11 @@ import { Tour } from '../types';
 import Icon from './Icon';
 
 const TourCard: React.FC<{ tour: Tour }> = ({ tour }) => (
-  <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col h-full border border-gray-100">
+  <a href="#tours" className="group bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-200 flex flex-col h-full border border-gray-100 transform hover:-translate-y-2">
     <div className="relative">
       <img src={tour.imageUrl} alt={`eBike tour of ${tour.title}`} className="w-full h-56 object-cover" />
       {tour.spotsLeft && tour.spotsLeft <= 5 && (
-        <div className="absolute top-4 right-4 bg-yellow-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">
+        <div className="absolute top-4 right-4 bg-brand-secondary text-brand-dark text-xs font-bold px-3 py-1 rounded-full shadow-md">
           Only {tour.spotsLeft} spots left!
         </div>
       )}
@@ -18,7 +18,7 @@ const TourCard: React.FC<{ tour: Tour }> = ({ tour }) => (
         <span className="inline-block bg-yellow-200 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full uppercase mb-3">
           {tour.category}
         </span>
-        <h3 className="text-xl font-bold font-sans text-brand-dark mb-1">{tour.title}</h3>
+        <h3 className="text-xl font-bold font-sans text-brand-dark mb-1 transition-colors group-hover:text-brand-accent">{tour.title}</h3>
         <div className="flex items-center text-sm text-gray-500 mb-4">
           <Icon name="map-pin" className="w-4 h-4 mr-1.5" />
           <span>{tour.location}</span>
@@ -40,7 +40,7 @@ const TourCard: React.FC<{ tour: Tour }> = ({ tour }) => (
          </div>
       </div>
     </div>
-  </div>
+  </a>
 );
 
 export default TourCard;

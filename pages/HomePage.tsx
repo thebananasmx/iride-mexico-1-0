@@ -33,11 +33,11 @@ const HomePage: React.FC = () => {
     <>
       {/* 1. Hero Section */}
       <section 
-        className="relative h-[60vh] bg-cover bg-center flex flex-col justify-center items-center text-center text-white"
+        className="relative h-[60vh] bg-cover bg-center text-white"
         style={{ backgroundImage: "url('https://res.cloudinary.com/dg4wbuppq/image/upload/v1762524949/bhargava-marripati-7LDBKPWAHJ4-unsplash_xnvhry.jpg')" }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="relative z-10 p-4">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center items-center text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold font-sans">
             Mexico's Best Scenic & City eBike Tours
           </h1>

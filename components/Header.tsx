@@ -42,9 +42,9 @@ const Header: React.FC = () => {
           <div className="flex items-center justify-between h-36">
             <a href="/" onClick={(e) => handleNavigate(e, '/')} className="relative z-[51]">
               <img
-                src="https://res.cloudinary.com/dg4wbuppq/image/upload/v1762562885/iridecdmx_jgwyxf.jpg"
+                src="https://res.cloudinary.com/dg4wbuppq/image/upload/v1762563552/logo-cdmx_njntfn.png"
                 alt="Ride Mexico Logo"
-                className="h-24 w-auto"
+                className="h-[100px] md:h-32 w-auto"
               />
             </a>
 

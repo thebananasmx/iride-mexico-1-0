@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Button from './Button';
 import { handleNavigate } from '../utils';
@@ -38,9 +39,13 @@ const Header: React.FC = () => {
     <>
       <header className={`sticky top-0 z-50 transition-all duration-300 md:shadow-md ${isScrolled && !isMenuOpen ? 'shadow-md' : ''} ${isMenuOpen ? 'bg-transparent' : 'bg-white/95 backdrop-blur-sm'}`}>
         <div className="container">
-          <div className="flex items-center justify-between h-20">
-            <a href="/" onClick={(e) => handleNavigate(e, '/')} className={`relative z-[51] text-2xl font-bold font-sans transition-colors duration-300 ${isMenuOpen ? 'text-white' : 'text-brand-primary'}`}>
-              Ride Mexico
+          <div className="flex items-center justify-between h-36">
+            <a href="/" onClick={(e) => handleNavigate(e, '/')} className="relative z-[51]">
+              <img
+                src="https://res.cloudinary.com/dg4wbuppq/image/upload/v1762562885/iridecdmx_jgwyxf.jpg"
+                alt="Ride Mexico Logo"
+                className="h-24 w-auto"
+              />
             </a>
 
             <nav className="hidden md:flex items-center space-x-8">

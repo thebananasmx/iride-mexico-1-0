@@ -11,6 +11,7 @@ export interface Tour {
   duration: string;
   difficulty: string;
   spotsLeft?: number;
+  price: number;
 }
 
 export interface Testimonial {

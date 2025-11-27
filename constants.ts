@@ -12,6 +12,7 @@ export const TOURS: Tour[] = [
     duration: '6 Hours',
     difficulty: 'Easy',
     spotsLeft: 5,
+    price: 95,
   },
   {
     title: 'Cancun Jungle & Cenote Adventure',
@@ -22,6 +23,7 @@ export const TOURS: Tour[] = [
     duration: '4 Hours',
     difficulty: 'Moderate',
     spotsLeft: 3,
+    price: 110,
   },
   {
     title: 'Oaxaca Culinary Colors Tour',
@@ -31,6 +33,7 @@ export const TOURS: Tour[] = [
     category: 'Family-Friendly',
     duration: '3 Hours',
     difficulty: 'Easy',
+    price: 75,
   },
    {
     title: 'Historic Center & Grand Palaces',
@@ -41,6 +44,7 @@ export const TOURS: Tour[] = [
     duration: '4 Hours',
     difficulty: 'Easy',
     spotsLeft: 8,
+    price: 80,
   },
   {
     title: 'Art Deco & Park Ride in Condesa',
@@ -50,6 +54,7 @@ export const TOURS: Tour[] = [
     category: 'Family-Friendly',
     duration: '3 Hours',
     difficulty: 'Easy',
+    price: 70,
   },
    {
     title: 'Xochimilco Floating Gardens Tour',
@@ -60,6 +65,7 @@ export const TOURS: Tour[] = [
     duration: '5 Hours',
     difficulty: 'Moderate',
     spotsLeft: 4,
+    price: 85,
   },
 ];
 

@@ -1,9 +1,14 @@
 import React from 'react';
 import { handleNavigate } from '../utils';
 
-interface ButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+// Make props more generic to support both <a> and <button>
+interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'outline';
   children: React.ReactNode;
+  className?: string;
+  href?: string;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLButtonElement>;
+  [key: string]: any; // Allow other props like 'disabled'
 }
 
 const Button: React.FC<ButtonProps> = ({ variant = 'primary', children, className, href, onClick, ...props }) => {
@@ -15,23 +20,36 @@ const Button: React.FC<ButtonProps> = ({ variant = 'primary', children, classNam
     outline: 'border-2 border-brand-accent text-brand-accent bg-transparent hover:bg-brand-accent hover:text-white',
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (onClick) {
-        onClick(e);
-    }
-    if (href) {
-        handleNavigate(e, href);
-    }
-  };
+  const combinedClassName = `${baseStyle} ${variantStyles[variant]} ${className || ''}`;
 
-  return (
-    <a 
-        className={`${baseStyle} ${variantStyles[variant]} ${className}`} 
+  if (href) {
+    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+      if (onClick) {
+        onClick(e as any);
+      }
+      handleNavigate(e, href);
+    };
+
+    return (
+      <a 
+        className={combinedClassName} 
         href={href}
         onClick={handleClick}
-        {...props}>
+        {...props}
+      >
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <button 
+      className={combinedClassName}
+      onClick={onClick}
+      {...props}
+    >
       {children}
-    </a>
+    </button>
   );
 };
 export default Button;

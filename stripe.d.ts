@@ -1,10 +1,10 @@
 // This file provides TypeScript definitions for the custom Stripe web component.
 // It allows <stripe-buy-button> to be used in JSX without causing type errors.
 
-// FIX: `import * as React from 'react'` is used to correctly import React's types.
-// The previous `import 'react';` did not make the `React` namespace available,
-// which caused the global JSX types to be overwritten, leading to errors across the app.
-import * as React from 'react';
+// FIX: Replaced the module import with a triple-slash reference directive.
+// This prevents the file from becoming a module, which was causing the global
+// JSX types to be overwritten instead of augmented.
+/// <reference types="react" />
 
 declare global {
     namespace JSX {

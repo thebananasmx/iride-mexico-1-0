@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Tour } from '../types';
+import Calendar from './Calendar';
 
 interface BookingModalProps {
   tour: Tour;
@@ -7,6 +8,8 @@ interface BookingModalProps {
 }
 
 const BookingModal: React.FC<BookingModalProps> = ({ tour, onClose }) => {
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+
   useEffect(() => {
     // Prevent background scrolling when modal is open
     document.body.style.overflow = 'hidden';
@@ -45,8 +48,8 @@ const BookingModal: React.FC<BookingModalProps> = ({ tour, onClose }) => {
            </button>
         </header>
 
-        <div className="p-6 md:p-8">
-            <div className="space-y-4">
+        <div className="p-6 md:p-8 overflow-y-auto max-h-[80vh]">
+            <div className="space-y-6">
               <div>
                  <img src={tour.imageUrl} alt={tour.title} className="w-full h-48 object-cover rounded-lg shadow-md mb-4"/>
                  <h3 className="text-xl font-bold font-sans text-brand-dark">{tour.title}</h3>
@@ -56,13 +59,35 @@ const BookingModal: React.FC<BookingModalProps> = ({ tour, onClose }) => {
                  </p>
               </div>
 
+              <hr className="border-gray-200" />
+
+              <div>
+                <label className="block text-lg font-bold font-sans text-brand-primary mb-2">
+                  Select an Available Date
+                </label>
+                <Calendar
+                  selectedDate={selectedDate}
+                  onDateSelect={setSelectedDate}
+                />
+              </div>
+
               <div className="mt-6 text-center">
-                <p className="text-sm text-gray-600 mb-4">Click the button below to proceed to our secure payment page. You can select the number of riders on the next step.</p>
-                 <stripe-buy-button
-                    buy-button-id="buy_btn_1SYHESI8GHWiLfjaZ430VQoN"
-                    publishable-key="pk_test_51SYH7GI8GHWiLfjaZMRA5wJ1GMItapSVdKY1KDMyFE6ZxfPLF6ZawTv4PXheajnVMmvrCKf3Oh2GNrW3X0oSEC5i00abeijiMp"
-                  >
-                  </stripe-buy-button>
+                 {!selectedDate ? (
+                    <p className="text-sm text-gray-500 p-4 bg-gray-100 rounded-md">Please select a date to proceed with your booking.</p>
+                  ) : (
+                    <>
+                      <p className="text-sm text-gray-600 mb-4">
+                        You've selected: <strong>{selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</strong>.
+                        <br />
+                        Click below to pay. You can select the number of riders on the next step.
+                      </p>
+                       <stripe-buy-button
+                          buy-button-id="buy_btn_1SYHESI8GHWiLfjaZ430VQoN"
+                          publishable-key="pk_test_51SYH7GI8GHWiLfjaZMRA5wJ1GMItapSVdKY1KDMyFE6ZxfPLF6ZawTv4PXheajnVMmvrCKf3Oh2GNrW3X0oSEC5i00abeijiMp"
+                        >
+                        </stripe-buy-button>
+                    </>
+                  )}
               </div>
             </div>
         </div>

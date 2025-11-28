@@ -26,15 +26,6 @@ const BookingModal: React.FC<BookingModalProps> = ({ tour, onClose }) => {
     };
   }, [onClose]);
   
-  // Get today's date in YYYY-MM-DD format for the min attribute of the date input
-  const getTodayString = () => {
-    const today = new Date();
-    // Adjust for timezone offset to get the correct local date string
-    const offset = today.getTimezoneOffset();
-    const todayWithOffset = new Date(today.getTime() - (offset * 60 * 1000));
-    return todayWithOffset.toISOString().split('T')[0];
-  }
-
   const handleCalendarDateSelect = (date: Date) => {
     // Convert Date object from Calendar to YYYY-MM-DD string
     const offset = date.getTimezoneOffset();
@@ -83,9 +74,14 @@ const BookingModal: React.FC<BookingModalProps> = ({ tour, onClose }) => {
             <img src={tour.imageUrl} alt={tour.title} className="w-full h-48 object-cover rounded-lg shadow-md mb-4"/>
             <h3 className="text-xl font-bold font-sans text-brand-dark">{tour.title}</h3>
             <p className="text-gray-500">{tour.location}</p>
-            <p className="text-2xl font-extrabold font-sans text-brand-accent mt-2">
-               ${tour.price.toFixed(2)} <span className="text-base font-normal text-gray-500">per person</span>
-            </p>
+            <div>
+              <p className="text-2xl font-extrabold font-sans text-brand-accent">
+                 ${tour.price.toFixed(2)} <span className="text-base font-normal text-gray-500">per person</span>
+              </p>
+              <p className="mt-2 inline-block bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full">
+                You can select the number of riders on the next step.
+              </p>
+            </div>
           </div>
 
           {/* Right Column: Date Selection & Payment */}
@@ -94,21 +90,9 @@ const BookingModal: React.FC<BookingModalProps> = ({ tour, onClose }) => {
                Select an Available Date
              </label>
 
-             {/* Mobile-friendly compact date picker */}
-             <div className="md:hidden">
-               <input 
-                 type="date"
-                 value={selectedDate}
-                 onChange={(e) => setSelectedDate(e.target.value)}
-                 min={getTodayString()}
-                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-accent focus:border-brand-accent"
-               />
-             </div>
-
-             {/* Desktop full calendar view */}
-             <div className="hidden md:block">
+             {/* Unified calendar for all screen sizes */}
+             <div>
                <Calendar
-                 // Convert string back to Date for the Calendar component
                  selectedDate={selectedDate ? new Date(selectedDate + 'T00:00:00') : null}
                  onDateSelect={handleCalendarDateSelect}
                />
@@ -122,7 +106,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ tour, onClose }) => {
                      <p className="text-sm text-gray-600 mb-4">
                        You've selected: <strong>{getFormattedDate()}</strong>.
                        <br />
-                       Click below to pay. You can select the number of riders on the next step.
+                       Click below to proceed to the payment page.
                      </p>
                       <stripe-buy-button
                          buy-button-id="buy_btn_1SYHESI8GHWiLfjaZ430VQoN"

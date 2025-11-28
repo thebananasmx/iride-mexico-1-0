@@ -59,8 +59,8 @@ const BookingModal: React.FC<BookingModalProps> = ({ tour, onClose }) => {
               <div className="mt-6 text-center">
                 <p className="text-sm text-gray-600 mb-4">Click the button below to proceed to our secure payment page. You can select the number of riders on the next step.</p>
                  <stripe-buy-button
-                    buy-button-id="buy_btn_1SYAmXIVDxyomh78KLhsWugB"
-                    publishable-key="pk_live_51ST38qIVDxyomh78C30LlASawCPH46pw5oEiGBCdMdJvVI51AmNsRadRw0UgkRiRmFv0iK20tWKYo9OUED3FzvBb00T8IrmN8k"
+                    buy-button-id="buy_btn_1SYHESI8GHWiLfjaZ430VQoN"
+                    publishable-key="pk_test_51SYH7GI8GHWiLfjaZMRA5wJ1GMItapSVdKY1KDMyFE6ZxfPLF6ZawTv4PXheajnVMmvrCKf3Oh2GNrW3X0oSEC5i00abeijiMp"
                   >
                   </stripe-buy-button>
               </div>
